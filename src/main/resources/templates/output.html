@@ -5,12 +5,12 @@
 <title>Tutorial of Thymeleaf</title>
 </head>
 <body>
-    <h1>Thymeleaf Page</h1>
-    <h2>入力画面</h2>
+    <h1 th:text="#{content.title}"></h1>
+    <h2 th:text="#{content.message}"></h2>
     <div th:unless="${#strings.isEmpty(previous)}">
-        <p th:text="'入力された値は「' + ${previous} + '」です。'"></p>
+        <p th:text="#{content.enteredmessage} + '「' + ${previous} + '」です。'"></p>
     </div>
-    <p><a th:href="@{/input/(previous=${previous})}">入力画面へ戻る</a></p>
+    <p><a th:href="@{/input/(previous=${previous})}" th:text="#{content.returnmessage}"></a></p>
 
 </body>
 </html>
